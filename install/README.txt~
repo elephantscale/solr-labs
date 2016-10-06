@@ -1,0 +1,29 @@
+Solr install (20 min)
+
+In this lab we will practice the installation of the Solr server.
+
+
+Lab Goals:
+
+1. Install Solr and verify its operation
+2. Prepare to use this install for all subsequent labs
+
+== STEP 0) The instructor will provide a CentOS server with SSH access. If you feel more comfortable in Windows environment,
+ask the instructor for a Windows server, with a Remote Desktop access. Linux in preferred though, because it comes with the labs.
+
+== STEP 1) Verify that you have Java installed.
+
+
+== STEP 2) Run the same query in Bing. Measure precision and recall.
+
+
+== STEP 3) Put the results in a comparison table:
+
+-------------------------------
+Query    |  Google  |   Bing  |           
+Precision|          |         |
+Recall   |          |         |
+-------------------------------    
+
+
+== STEP 4) Challenge: find cases where Bing outperforms Google.
