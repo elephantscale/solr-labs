@@ -9,11 +9,11 @@ Lab Goals:
 2. Use it to view documents in Lucene index.
 
 ### STEP 1)  Install Luke
-  Download the latest luke.jar from the web, currently
+  Download the latest luke.jar from the web, currently   
   Tested:   
-  https://github.com/DmitryKey/luke/releases/tag/luke-4.10.4
+  https://github.com/DmitryKey/luke/releases/tag/luke-4.10.4   
   Latest:   
-  https://github.com/DmitryKey/luke/releases/
+  https://github.com/DmitryKey/luke/releases/   
 
   Copy the index from your Solr install
 
