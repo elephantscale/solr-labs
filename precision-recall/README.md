@@ -1,4 +1,4 @@
-# IR - Information Retrieval
+# Precision and Recall
 
 In this lab we will practice measuring the performance of search engines, treating them is IR (information retrieval) systems.
 We will look at the two major metrics: precision and recall.
@@ -15,7 +15,7 @@ Lab Goals:
 ### You will be putting the results in this comparison table:
 
     | Query    |  Google  |   Bing  |
-    | ---------|:--------:|----------
+    | ---------|----------|----------
     | Precision|          |         |
     | Recall   |          |         |
 

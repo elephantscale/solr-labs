@@ -32,6 +32,6 @@ What questions can you answer using the inverted index?
 ### STEP 3) Bonus question
 
 Would there be any use to store in the inverted index both the 
-document and the line where the word is found?
+document name and the line where the word is found?
 
 
