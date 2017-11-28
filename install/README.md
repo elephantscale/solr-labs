@@ -1,4 +1,4 @@
-# ES install
+# Solr install
 
 In this lab we will practice the installation of the Solr server.
 
@@ -10,9 +10,9 @@ Lab Goals:
 
 ### STEP 1) Login to the server
  
-Each student is provided their individual server and credentials
+Each student is provided his/her individual server and credentials
 
-(Instructor: use our ubuntu AMI, t2.large or t2.xlarge instances and Elasticsearch security group)
+(Instructor: use m3.medium instance and Solr security group)
 
 ### STEP 2) Verify the environment
 
@@ -20,45 +20,102 @@ Verify that you have Java installed
 
     java -version
 
-### STEP 3) Download and install ES
+### STEP 3) Download and install Solr
 
-    curl -L –O https://download.elastic.co/elasticsearch/elasticsearch/
-    elasticsearch-2.3.3.tar.gz
-    tar -zxvf elasticsearch-2.3.3.tar.gz
-    cd elasticsearch-2.3.3
+Solr is found here, [Solr web site](http://lucene.apache.org/solr) 
 
-### STEP 4) Start ES
+Find the 4.x or 5.x version you want.
 
-    bin/elasticsearch
+Find out the link to download, copy the link, then use the wget (or curl) command to place the Solr bundle on your server, such as
+
+4.x
+
+    wget http://archive.apache.org/dist/lucene/solr/4.9.1/solr-4.9.1.tgz
+
+5.x
+
+    wget http://apache.spinellicreations.com/lucene/solr/5.2.0/solr-5.2.0.zip
+
+Decompress and untar the bundle. You can put Solr in any directory.
+
+(Standard for Linux would be /opr/solr)
+
+For example,
+
+    tar xf solr-4.9.1.tgz
+
+### STEP 4) Start Solr
+
+Assuming that $SOLR_INSTALL/ is where you put your Solr
+
+4.x
+
+    cd $SOLR_INSTALL/example
+    java -jar start.jar
     
-_Tip_: You can run it in the background as a daemon by using the -d option
-    
+    To change the port from 8983, start this way
+    sudo /usr/java/latest/bin/java -jar start.jar -Djetty.port=80
+
+5.x
+
+    cd $SOLR_INSTALL
+    ./bin/solr start -e cloud -noprompt
+
 ### STEP 5) Verify install
 
-    curl 'http://localhost:9200/?pretty'
+Open this URL in your browser: http://your-server-url:8983
 
-### Environment Variables
+You will be redirected to the Solr admin console
 
-* The JAVA_OPTS passed to JVM is used by Elasticsearch
+### STEP 6) Stop Solr
 
-### Configuration files
+4.x
 
-    elasticsearch.yml
+For now
 
-Configure different Elasticsearch modules.
+    CTRL-X
 
-    logging.yml
-    
-Configure the Elasticsearch logging
-    
-### STEP 6) ES options
+5.x
 
-    bin/elasticsearch 
-or
-    bin/elasticsearch --help
-    
-Study the options
+    cd $SOLR_INSTALL
+    ./bin/solr stop
+     
+Observe and fix the error message
+     
+     ./bin/solr stop all
 
+Now start Solr again
 
+### STEP 7) Index some data
 
+4.x
 
+    cd $SOLR_INSTALL/example/exampledocs
+    java -jar post.jar *.xml
+
+5.x
+
+    bin/post -c gettingstarted docs/
+
+### STEP 8) Answer the following questions:
+
+1 What is the value of the lucene-spec version property for your Solr server?
+
+2 What is the log level of the org.apache.solr.core.SolrConfig class?
+
+3 What is the value of the maxDoc property for the cores present?
+
+4 What is the value of the java.vm.vendor Java system property?
+
+5 What is the segment count for the cores present?
+
+6 What is the response time of pinging your server?
+
+7 What is the top term for the manu field? (Hint: select the manu field in the schema
+browser, and click the Load Term Info button.)
+
+8 What is the current size of your documentCache? (Hint: think stats.)
+
+9 What is the analyzed value of the name Belkin Mobile Power
+
+Hint: select the name field on the Analysis page
