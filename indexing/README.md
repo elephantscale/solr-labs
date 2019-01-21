@@ -10,7 +10,7 @@ In this lab we will practice the direct indexing of documents with Solr server a
 
 ### STEP 1) Clean up the index (brute force, we will learn a more sophisticated way at the end of this lab)
 
-After stopping Solr, you can remove all documents by deleting the contents of the data/ directory for your core, such as solr/collection1/data/*. 
+After stopping Solr, you can remove all documents by deleting the contents of the data directory for your core, such as solr/collection1/data/*. 
 When you restart Solr, you will have a fresh index with 0 documents.
 
 ### STEP 2) Index documents
@@ -19,9 +19,11 @@ When you restart Solr, you will have a fresh index with 0 documents.
     java -jar post.jar *.xml
 
 
-### STEP 3) Execute the *:* query. For that, select 'collection1'. Follow the screenshot on the slides.
+### STEP 3) Execute the *:* query
+ For that, select 'collection1'. Follow the screenshot on the slides.
 
-### STEP 4) Investigate various search options provided by Solr. Compose your list, then compare it to the screenshot on the slides.
+### STEP 4) Investigate various search options provided by Solr
+ Compose your list, then compare it to the screenshot on the slides.
 
 
 # Solr indexing and searching, part B. Tweets in XML and JSON
