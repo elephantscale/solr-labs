@@ -22,19 +22,15 @@ Verify that you have Java installed
 
 ### STEP 3) Download and install Solr
 
-Solr is found here, [Solr web site](http://lucene.apache.org/solr) 
+Solr is found here, [Solr web site](https://www-eu.apache.org/dist/lucene/solr/7.6.0) 
 
-Find the 4.x or 5.x version you want.
 
 Find out the link to download, copy the link, then use the wget (or curl) command to place the Solr bundle on your server, such as
 
-4.x
 
-    wget http://archive.apache.org/dist/lucene/solr/4.9.1/solr-4.9.1.tgz
 
-5.x
+    wget https://www-eu.apache.org/dist/lucene/solr/7.6.0/solr-7.6.0.tgz
 
-    wget http://apache.spinellicreations.com/lucene/solr/5.2.0/solr-5.2.0.zip
 
 Decompress and untar the bundle. You can put Solr in any directory.
 
@@ -42,52 +38,38 @@ Decompress and untar the bundle. You can put Solr in any directory.
 
 For example,
 
-    tar xf solr-4.9.1.tgz
+    tar zxf solr-7.6.0.tgz
 
 ### STEP 4) Start Solr
 
 Assuming that $SOLR_INSTALL/ is where you put your Solr
 
-4.x
 
-    cd $SOLR_INSTALL/example
-    java -jar start.jar
+    cd $SOLR_INSTALL/bin 
+    start
     
-    To change the port from 8983, start this way
-    sudo /usr/java/latest/bin/java -jar start.jar -Djetty.port=80
 
-5.x
+### STEP 5) Verify If Solr Is Up And Running
 
-    cd $SOLR_INSTALL
-    ./bin/solr start -e cloud -noprompt
-
-### STEP 5) Verify install
-
-Open this URL in your browser: http://your-server-url:8983
+Open this URL in your browser: http://your-server-url:8983/solr
 
 You will be redirected to the Solr admin console
 
 ### STEP 6) Stop Solr
 
-4.x
-
-For now
-
-    CTRL-X
-
-5.x
 
     cd $SOLR_INSTALL
-    ./bin/solr stop
+    ./bin/solr stop -all
      
-Observe and fix the error message
-     
-     ./bin/solr stop all
 
 Now start Solr again
 
-### STEP 7) Index some data
+### STEP 7) Create A Core
+To index and search you need to create a core
+bin/solr create -c <name>
 
+### STEP 7) Index some data (Must Totally be changed)
+*****************
 4.x
 
     cd $SOLR_INSTALL/example/exampledocs
@@ -96,6 +78,7 @@ Now start Solr again
 5.x
 
     bin/post -c gettingstarted docs/
+*****************
 
 ### STEP 8) Answer the following questions:
 
