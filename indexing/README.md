@@ -11,7 +11,7 @@ In this lab we will practice the direct indexing of documents with Solr server a
 ### STEP 1) Clean up the index (brute force, we will learn a more sophisticated way at the end of this lab)
 
 After stopping Solr, you can remove all documents by deleting the contents of the data/ directory for your core, such as solr/collection1/data/*. 
-When you restart Solr, you will ll have a fresh index with 0 documents.
+When you restart Solr, you will have a fresh index with 0 documents.
 
 ### STEP 2) Index documents
 
