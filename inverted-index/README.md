@@ -14,7 +14,7 @@ Choose any book of your liking in the "docs" directory
 Using any tool (Notepad, VI or NANO editor), prepare the index for the
 chosen document, in the form of 
 
-Word -- Lines where this word is found
+`Word -- Lines where this word is found`
 
 What questions can you answer using an index?
 
@@ -24,7 +24,7 @@ What questions can you answer using an index?
 * Find this word in all the documents
 * Enter an inverted index line in the form
 
-Word -- Documents where the word is found
+`Word -- Documents where the word is found`
 
 How would you automate this process?
 What questions can you answer using the inverted index?
