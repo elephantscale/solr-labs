@@ -14,13 +14,13 @@ After stopping Solr, you can remove all documents by deleting the contents of th
 When you restart Solr, you will have a fresh index with 0 documents.
 
 ### STEP 2) Index documents
-
-    cd $SOLR_INSTALL/example/exampledocs
-    java -jar post.jar *.xml
-
+```bash
+    $cd $SOLR_INSTALL/example/exampledocs
+    $bin/post -c collection1 example/exampledocs/*.xml
+```
 
 ### STEP 3) Execute the *:* query
- For that, select 'collection1'. Follow the screenshot on the slides.
+ For that, select `collection1`. Follow the screenshot on the slides.
 
 ### STEP 4) Investigate various search options provided by Solr
  Compose your list, then compare it to the screenshot on the slides.
@@ -32,7 +32,7 @@ In this lab we will practice the indexing of XML and JSON tweet documents.
 
 #### The documents are found in this labs's data folder, $SOLR_LAB
 
-For example, $SOLR_LAB=~/solr
+For example, `$SOLR_LAB=~/solr`
 
 
 Lab Goals:
@@ -41,20 +41,20 @@ Lab Goals:
 2. Search the results
 
 ### STEP 1) Index XML documents
-
-    java -jar post.jar $SOLR_LABS/indexing/data/tweets/tweets.xml
-
+```bash
+    $bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.xml
+```
 ### STEP 2) Execute the *:* query. 
 
 Click Query under collection1 in the menu on the left, and execute query type_s:post
 
 ### STEP 3) Index JSON documents
-
-    java -Dtype=application/json -jar post.jar $SOLR_LABS/indexing/data/tweets/tweets.json
-
+```bash
+    $bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.json
+```
 ### Notice:
 
-We use dynamic fields. For instance, screen_name_s will is a string because of the _s suffix on the name.
+We use dynamic fields. For instance, `screen_name_s` will is a string because of the `_s suffix` on the name.
 
 Question: do we have 4 documents in the index now? We indexed 2 documents 2 times! If not, explain why not.
 
@@ -74,23 +74,23 @@ Lab Goals:
 ### STEP 2) To delete a document by ID
 
 Use the following query form
-
+```bash
     <delete>
       <id>1</id>
     </delete>
-
+```
 With the update handler below 
-
+```bash
     curl http://localhost:8983/solr/update
     
 [Hint](https://wiki.apache.org/solr/UpdateXmlMessages)
-
+```
 Another way to delete a document
-
-    java -Ddata=args -Dcommit=? -jar post.jar "<delete><id>?</id></delete>"
-
+```bash
+    $bin/post -Ddata=args -Dcommit=? "<delete><id>?</id></delete>"
+```
 ### STEP 3) To delete all documents
-
+```bash
     curl http://localhost:8983/solr/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
     curl http://localhost:8983/solr/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
-
+```
