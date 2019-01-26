@@ -5,20 +5,26 @@ techniques for tweets
 
 Lab Goals
 
-1. Adjust schema.xml
+1. Adjust managed-schema
 2. Re-index the documents
 3. Verify text analysis
 
-### STEP 1) Use the schema from conf/schema.xml in this lab's directory
+### STEP 1) Use the schema from conf/managed-schema in this lab's directory
 
-The examples in this chapter depend on a few minor customizations to the schema.xml that ships with the Solr example. 
-Replace the schema.xml file that ships with the Solr example found in conf/ in this lab.
+The examples in this chapter depend on a few minor customizations to the managed-schema that ships with the Solr example. 
+Replace the managed-schema file that ships with the Solr example found in conf/ in this lab.
 
-$SOLR_INSTALL/example/solr/collection1/conf/schema.xml by doing cp conf/schema.xml SOLR_INSTALL/example/solr/collection1/conf/
+
+*** NEEDS TO REPLACE THE FILE SCHEMA.XML IN THE CONF DIRECTORY WITH MANAGED-SCHEMA ***
+$SOLR_INSTALL/server/solr/collection1/conf/managed-schema by doing cp conf/managed-schema SOLR_INSTALL/server/solr/collection1/conf/
+
+*** I DID NOT FIND ANYTHING ABOUT IT IN THE LATEST VERSION OF SOLR ***
 
 In addition, you need to copy the wdfftypes.txt file to the conf directory:
 
     cp conf/wdfftypes.txt $SOLR_INSTALL/example/solr/collection1/conf/
+
+************************************************************************
 
 Finally, delete everything in your data directory to start with an empty search index:
 
