@@ -46,8 +46,8 @@ For example,
 Assuming that `$SOLR_INSTALL/` is where you put your Solr
 
 ```bash
-    cd $SOLR_INSTALL/bin 
-    start
+    cd $SOLR_INSTALL
+    bin/solr start
 ```    
 
 ### STEP 5) Verify If Solr Is Up And Running
