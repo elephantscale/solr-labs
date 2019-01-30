@@ -11,7 +11,7 @@ Lab Goals
 
 ### STEP 1) Do a recursive copy of collection1. Call it newcore
 
-cd $SOLR_INSTALL/example/solr
+cd $SOLR_INSTALL/server/solr
 
 cp -a collection1 newcore
 
@@ -19,7 +19,7 @@ cd newcore;
 
 rm -rf core.properties data README.txt
 
-### STEP 2) Register it with Solr (hint: we are using Solr 4.9)
+### STEP 2) Register it with Solr (hint: we are using Solr 7.6.0)
 
   Try to find the information online
 
