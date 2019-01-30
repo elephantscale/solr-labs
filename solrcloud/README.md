@@ -52,7 +52,7 @@ Lab Goals:
 2. Update SolrCloud with the changes
 
 
-### STEP 1) Locate $SOLR_INSTALL/shard1/solr/logmill/conf/solrconfig.xml to
+### STEP 1) Locate $SOLR_INSTALL/shard1/solr/logmill/conf/solrconfig.xml
 
 ### STEP 2) Change configuration as below
 
