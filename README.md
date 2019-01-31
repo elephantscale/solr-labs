@@ -42,5 +42,16 @@ We recommend using a 'programmer's editor to view these files. These editors hav
   - [IR Intro](./IR/README.md)
   - [Install Solr](./install/README.md)
   - [Indexing](./indexing/README.md)
-
- 
+* Searching
+  - [Searching](./searching/README.md)
+* Indexing
+  - [Bookstore App](./bookstore/README.md)
+* Schema Updating
+  - [Schema](./schema/README.md)
+  - [Text Analysis](./textanalysis/README.mD)
+* Extended Features
+  - [Clustering](./clustering/README.md)
+* SolrCloud
+  - [SolrCloud](./solrcloud/README.md)
+* Dev Environments
+  - [Luke](./luke/README.md)
