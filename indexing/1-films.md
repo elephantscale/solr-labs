@@ -74,6 +74,7 @@ http://localhost:7574/solr/admin/collections?action=CREATE&name=films&numShards=
         "status":0,
         "QTime":2494},
       "core":"films_shard1_replica_n2"}}}
+```
 
 
 
