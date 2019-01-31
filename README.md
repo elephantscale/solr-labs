@@ -17,14 +17,14 @@ Login with the credentials provided by the instructor
 
 ### STEP 3) To view the labs 
 
-Markdown (*.md) files are plain text files and can be viewed in any text editor.
+Markdown (`*.md`) files are plain text files and can be viewed in any text editor.
 
 For best viewing experience we recommend the following setup:
 
 * Get Chrome browser from [here](https://www.google.com/chrome/browser/desktop/)
 * Install Markdown [preview plus plugin](https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl?hl=en-US)
 * Once installed, go to 'Window --> Extensions' menu of Chrome ;   Find 'Markdown Preview Plus' plugin ;  set 'Allow access to file urls'
-* Open any *.md file using Chrome (File --> Open)
+* Open any `*.md` file using Chrome (File --> Open)
 
 ### If you need to edit a file
 
@@ -33,3 +33,14 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * For Windows: [Sublime](http://www.sublimetext.com/), [NodePad++](http://notepad-plus-plus.org/), [Textpad](http://www.textpad.com/)
 * For Mac: [Sublime](http://www.sublimetext.com/),  [TextWrangler](http://www.barebones.com/products/textwrangler/)
 * For Linux: [Sublime](http://www.sublimetext.com/), GEdit, Vim
+
+
+### Labs
+
+* Introduction
+  - [Inverted Index](./inverted-index/README.md)
+  - [IR Intro](./IR/README.md)
+  - [Install Solr](./install/README.md)
+  - [Indexing](./indexing/README.md)
+
+ 

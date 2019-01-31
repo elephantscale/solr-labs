@@ -10,10 +10,11 @@ In this lab we will practice the direct indexing of documents with Solr server a
 
 ### STEP 1) Clean up the index (brute force, we will learn a more sophisticated way at the end of this lab)
 
-After stopping Solr, you can remove all documents by deleting the contents of the data directory for your core, such as solr/collection1/data/*. 
+After stopping Solr, you can remove all documents by deleting the contents of the data directory for your core, such as `solr/collection1/data/*`. 
 When you restart Solr, you will have a fresh index with 0 documents.
 
 ### STEP 2) Index documents
+
 ```bash
     $cd $SOLR_INSTALL/example/exampledocs
     $bin/post -c collection1 example/exampledocs/*.xml
@@ -32,7 +33,7 @@ In this lab we will practice the indexing of XML and JSON tweet documents.
 
 #### The documents are found in this labs's data folder, $SOLR_LAB
 
-For example, `$SOLR_LAB=~/solr`
+For example, `$SOLR_LAB=~/solr_labs`
 
 
 Lab Goals:
@@ -42,7 +43,7 @@ Lab Goals:
 
 ### STEP 1) Index XML documents
 ```bash
-    $bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.xml
+    bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.xml
 ```
 ### STEP 2) Execute the *:* query. 
 
@@ -50,7 +51,7 @@ Click Query under collection1 in the menu on the left, and execute query type_s:
 
 ### STEP 3) Index JSON documents
 ```bash
-    $bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.json
+    bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.json
 ```
 ### Notice:
 
