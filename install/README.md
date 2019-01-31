@@ -138,9 +138,12 @@ SolrCloud example running, please visit: http://localhost:8983/solr
 
 ### STEP 5) Verify If Solr Is Up And Running
 
+Open this URL in your browser: 
+
 ```bash
-Open this URL in your browser: http://your-server-url:8983/solr
+http://your-server-url:8983/solr
 ```
+
 You will be redirected to the Solr admin console
 
 
