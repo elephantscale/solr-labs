@@ -21,6 +21,13 @@ Observe and fix any errors
 
         mvn test
 
+
+### Step 2) Run Main Class
+
+```bash
+java -cp target/solr-lab-1.0-SNAPSHOT-jar-with-dependencies.jar com.es.solr.Main
+```
+
 ### STEP 2) Modify the project to test in a flexible way
 
 1. Fix every TODO item

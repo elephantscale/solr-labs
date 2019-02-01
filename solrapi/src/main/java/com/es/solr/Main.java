@@ -13,12 +13,18 @@ import java.io.IOException;
 public class Main {
     public static void main(String []args) {
         System.out.println("Main program for com.es.solr.Main");
+        try {
+           SolrCellRequestDemo.main(null);
+        }
+        catch (Exception e) {
+           System.out.println(e.toString());
+        }
     }
 
     public static class SolrCellRequestDemo {
         public static void main(String[] args) throws IOException, SolrServerException {
-            SolrClient server = new
-                    HttpSolrClient("http://localhost:8983/solr/my_collection");
+            String urlString = "http://localhost:8983/solr/techproducts";
+            SolrClient server = new HttpSolrClient.Builder(urlString).build();
             ContentStreamUpdateRequest req = new
                     ContentStreamUpdateRequest("/update/extract");
             req.addFile(new File("my-file.pdf"),"UTF8");
