@@ -15,9 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
-/**
- * Created by mark on 6/18/15.
- */
+
 public class SolrOps {
     public void addDocument(File fileToAdd) {
 //        try {
