@@ -10,9 +10,6 @@ import org.apache.solr.handler.extraction.ExtractingParams;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by mark on 6/17/15.
- */
 public class Main {
     public static void main(String []args) {
         System.out.println("Main program for com.es.solr.Main");
