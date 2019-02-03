@@ -45,8 +45,11 @@ Decompress and untar the bundle. Put solr in your home directory, like this:
 
 Assuming that `$SOLR_INSTALL/` is where you put your Solr
 
+**=> Execute the following Commands:**
+
+
 ```bash
-    export SOLR_INSTALL=/home/ubuntu/solr
+    export SOLR_INSTALL=$HOME/solr
     cd $SOLR_INSTALL
     ./bin/solr start -e cloud
 ```    
@@ -61,7 +64,7 @@ This interactive session will help you launch a SolrCloud cluster on your local 
 To begin, how many Solr nodes would you like to run in your local cluster? (specify 1-4 nodes) [2]:
 ```
 
-**Select the Defaults value of 2 for number of nodees.**
+**=> Select the Defaults value of 2 for number of nodees.**
 
 ```console
 Ok, let's start up 2 Solr nodes for your example SolrCloud cluster.
@@ -70,7 +73,7 @@ Please enter the port for node1 [8983]:
 Please enter the port for node2 [7574]:
 ```
 
-**Select the Defaults value of `8983` and `7574` respectively for node1 and node2 port.**
+**=> Select the Defaults value of `8983` and `7574` respectively for node1 and node2 port.**
 
 You will observe the following output:
 
@@ -98,8 +101,14 @@ Now let's create a new collection for indexing documents in your 2-node cluster.
 Please provide a name for your new collection: 
 ```
 
-Type in the name `techproducts` at the prompt at hit enter. It will now as you how many shards you want. The default 
+**=> Type in `techproducts` at the prompt and hit enter.**
+
+Type in the name `techproducts` at the prompt at hit enter. 
+
+It will now as you how many shards you want. The default 
 value of `2` is fine.
+
+**=> Select the default value of `2`.**
 
 ```console
 How many shards would you like to split techproducts into? [2]
@@ -107,9 +116,13 @@ How many shards would you like to split techproducts into? [2]
 
 It will now as you how many replicas per shard you want. In this case the default of 2 is also fine.
 
+**=> Again Select the default value of `2`.**
+
 ```console
 How many replicas per shard would you like to create? [2]
 ```
+**=> Again Select the default value of `2`.**
+
 
 It will now ask you about the configsets. In this case you will **NOT** be selecting the default.
 
@@ -119,9 +132,10 @@ Please choose a configuration for the techproducts collection, available options
 _default or sample_techproducts_configs 
 ```
 
-You will type in `sample_techproducts_configs` and hit enter.
+**=> Type in `sample_techproducts_configs` and hit enter.**
 
 You should see the following output:
+
 ```console
 Created collection 'techproducts' with 2 shard(s), 2 replica(s) with config-set 'techproducts'
 
@@ -241,7 +255,7 @@ If we scroll down and press on *Execute Query*, we will get the following JSON r
         "sequence_i":1,
         "genre_s":"fantasy",
         "_version_":1624151760927981568,
-        "price_c____l_ns":699}
+        "price_c____l_ns":699}]
 }}
 ```
 
@@ -250,6 +264,8 @@ The results will be much longer, but this is snipped for brevity.
 ### Step 10: Do a query at the command line with curl command
 
 Try the following at your command line:
+
+**=> Type the following:**
 
 ```bash
 curl "http://localhost:8983/solr/techproducts/select?indent=on&q=*:*"
