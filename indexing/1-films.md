@@ -100,7 +100,7 @@ We can, however, set up a "catchall field" by defining a copy field that will ta
 You can use either the Admin UI or the Schema API for this.
 
 ```bash
-curl -X POST -H 'Content-type:application/json' --data-binary '{"add-field": {"name":"name", "type":"text_general", "multiValued":false, "stored":true}}' http://localhost:8983/solr/films/schema
+curl -X POST -H 'Content-type:application/json' --data-binary '{"add-copy-field" : {"source":"*","dest":"_text_"}}' http://localhost:8983/solr/films/schema
 ```
 
 In the Admin UI, choose `Add Copy Field`, then fill out the source and destination for your field, as in this screenshot.
