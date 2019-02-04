@@ -41,7 +41,104 @@ Decompress and untar the bundle. Put solr in your home directory, like this:
     tar zxf solr-7.6.0.tgz
     mv solr-7.6.0 ~/solr
 ```
-### STEP 4) Start Solr
+
+### Step 4) Check ulimit
+
+If you start solr now, you will likely get this nasty warning:
+
+
+```console
+*** [WARN] *** Your open file limit is currently 1024.  
+ It should be set to 65000 to avoid operational disruption. 
+ If you no longer wish to see this warning, set SOLR_ULIMIT_CHECKS to false in your profile or solr.in.sh
+*** [WARN] ***  Your Max Processes Limit is currently 31748. 
+ It should be set to 65000 to avoid operational disruption. 
+ If you no longer wish to see this warning, set SOLR_ULIMIT_CHECKS to false in your profile or solr.in.sh
+```
+
+So, let us avoid this problem by properly setting our ulimits. First, let's check to see our current ulimit:
+
+```console
+$ ulimit -n
+1024
+```
+
+Let see our max ulmit: 
+
+```console
+$ cat /proc/sys/fs/file-max
+810574
+```
+
+Plenty of room for improvement, right?
+
+Let's change it to 65000, as solr recommends:
+
+```console
+$ sudo  nano /etc/sysctl.conf
+```
+
+add the following:
+
+```console
+fs.file-max = 65000
+```
+
+Run this:
+
+```bash
+sudo sysctl -p
+```
+
+Edit this file:
+
+```console
+$ sudo nano /etc/security/limits.conf
+```
+
+Add this:
+
+```console
+* soft     nproc          65000    
+* hard     nproc          65000   
+* soft     nofile         65000   
+* hard     nofile         65000 
+root soft     nproc          65000    
+root hard     nproc          65000   
+root soft     nofile         65000   
+root hard     nofile         65000
+```
+
+Edit this file:
+
+```console
+$ sudo nano /etc/pam.d/common-session
+```
+
+Add this:
+
+```console
+session required pam_limits.so
+```
+
+Logout:
+
+```console
+$ exit
+```
+
+Log in again and type
+
+```console
+$ ulimit -n
+65000
+```
+
+You should see 65000
+
+
+
+### STEP 5) Start Solr
 
 Assuming that `$SOLR_INSTALL/` is where you put your Solr
 
@@ -150,7 +247,7 @@ SolrCloud example running, please visit: http://localhost:8983/solr
 ```
 
 
-### STEP 5) Verify If Solr Is Up And Running
+### STEP 6) Verify If Solr Is Up And Running
 
 Open this URL in your browser: 
 
