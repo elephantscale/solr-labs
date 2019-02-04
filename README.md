@@ -40,7 +40,8 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Introduction
   - [Inverted Index](./inverted-index/README.md)
   - [IR Intro](./IR/README.md)
-  - [Install Solr](./install/README.md)
+  - [Install Solr](./intro/1-install.md)
+  - [Query Solr](./intro/2-query.md)
   - [Indexing](./indexing/README.md)
 * Searching
   - [Searching](./searching/README.md)
@@ -55,3 +56,5 @@ We recommend using a 'programmer's editor to view these files. These editors hav
   - [SolrCloud](./solrcloud/README.md)
 * Dev Environments
   - [Luke](./luke/README.md)
+* Solr API
+  - [SolrAPI](./solrapi/README.md)
