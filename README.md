@@ -40,8 +40,10 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Introduction
   - [Inverted Index](./inverted-index/README.md)
   - [IR Intro](./IR/README.md)
-  - [Install Solr](./intro/1-install.md)
-  - [Query Solr](./intro/2-query.md)
+
+* Solr Intro
+  - [Install Solr](./solr-intro/1-install.md)
+  - [Query Solr](./solr-intro/2-query.md)
   - [Indexing](./indexing/README.md)
 * Searching
   - [Searching](./searching/README.md)

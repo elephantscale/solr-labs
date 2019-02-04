@@ -1,8 +1,4 @@
-# Solr Intro
+# Intro to Search
 
-## Lab
-
-This lab has two parts:
-
-1. [Install](./1-install.md)
-2. [Query](./2-query.md)
+1. [Inverted Index](./1-inverted-index.md)
+1. [Information Retrieval](./2-IR.md
