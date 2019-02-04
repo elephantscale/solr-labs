@@ -44,6 +44,7 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Solr Intro
   - [Install Solr](./solr-intro/1-install.md)
   - [Query Solr](./solr-intro/2-query.md)
+  - [Query Solr](./solr-intro/3-geospatial.md)
   - [Indexing](./indexing/README.md)
 * Searching
   - [Searching](./searching/README.md)
