@@ -8,16 +8,29 @@ In this lab we will practice the direct indexing of documents with Solr server a
 1. Index example documents
 2. Search the results
 
-### STEP 1) Clean up the index (brute force, we will learn a more sophisticated way at the end of this lab)
 
-After stopping Solr, you can remove all documents by deleting the contents of the data directory for your core, such as `solr/collection1/data/*`. 
-When you restart Solr, you will have a fresh index with 0 documents.
+### STEP 1) Clean up the index 
+```bash
+    curl http://localhost:8983/solr/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
+    curl http://localhost:8983/solr/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
+```
+
+
+### STep 2) Create A a new collection
+
+```bash 
+ ./bin/solr create -c collection1 -s 2 -rf 2
+
+```
 
 ### STEP 2) Index documents
 
+
+Let's start by doing the exampledocs
+
 ```bash
-    $cd $SOLR_INSTALL/example/exampledocs
-    $bin/post -c collection1 example/exampledocs/*.xml
+    $ ls $SOLR_INSTALL/example/exampledocs
+    $ bin/post -c collection1 example/exampledocs/*.xml
 ```
 
 ### STEP 3) Execute the *:* query
@@ -25,6 +38,14 @@ When you restart Solr, you will have a fresh index with 0 documents.
 
 ### STEP 4) Investigate various search options provided by Solr
  Compose your list, then compare it to the screenshot on the slides.
+
+### Step 5) Clean up the Index
+
+This will delete all the documents in  the `collection1` collection
+
+```bash
+bin/post -c collection1 -d "<delete><query>*:*</query></delete>"
+```
 
 
 # Solr indexing and searching, part B. Tweets in XML and JSON
