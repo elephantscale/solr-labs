@@ -2,13 +2,13 @@
 
 ## 1-Install
 
-In this lab we will practice changing the schema
+In this lab we will practice changing the schema.
 
 
 Lab Goals:
 
-* Install Solr and verify its operation
-* Prepare to use this install for all subsequent labs
+* Be able to browse and change the schema
+* Get used to the idea of changing it using the API rather than XML files.
 
 ### STEP 1) Stop solr and restart with `gettingstarted` schema
 
@@ -102,6 +102,23 @@ curl http://localhost:8983/solr/gettingstarted/schema
          "name":"sell_by",
          "type":"pdate",
          "stored":true}
+```
+
+
+Go ahead and open up your solr Web API in the browser
+
+```text
+http://YOURIPADDRESS:8983/solr/
+```
+
+On the dropdown on the left, select `gettingstarted` and select `Schema` as shown
+
+![](../images/schema-gettingstarted.png)
+
+Or you can go directly:
+
+```text
+http://YOURIPADDRESS:8983/solr/#/gettingstarted/schema?field=sell_by
 ```
 
 ### STEP 3) Delete a Field
@@ -309,4 +326,6 @@ Let's check out the modified field type, see what it looks like:
 curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes/myNewTxtField
 ```
 
+### Step 8: Copy fields
 
+Copy fields allow you to make a certain field interpreted more than one way.
