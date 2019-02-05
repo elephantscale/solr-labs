@@ -119,3 +119,194 @@ Retrive the schema and witness it is no longer there.
 ```bash
 curl http://localhost:8983/solr/gettingstarted/schema
 ```
+
+### STEP 4) Replace a field.
+
+You can replace a field. But first it has to exist.  So, let's add our sell by fild back again.
+
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-field":{
+     "name":"sell_by",
+     "type":"pdate",
+     "stored":true }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Now that it should be back, now let's *replace* the field with a different ype `date`.
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "replace-field":{
+     "name":"sell_by",
+     "type":"date",
+     "stored":false }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+### STEP 5) Dynamic Field Rules
+
+Dyanamic field rules allow us to set a rule about a field. For example, we can say that all field ending 
+in `_s` should be of type string.
+
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-dynamic-field":{
+     "name":"*_s",
+     "type":"string",
+     "stored":true }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Let's list all the dynamic fields:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/dynamicfields
+```
+
+
+Let's try listing the new dynamic field we just created:
+
+```bash
+curl "http://localhost:8983/solr/gettingstarted/schema/dynamicfields/*_s"
+```
+
+
+Now, let's use a replace to change the type from `string` to `text_general`:
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "replace-dynamic-field":{
+     "name":"*_s",
+     "type":"text_general",
+     "stored":false }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Let's try again listing the new dynamic field we just created:
+
+```bash
+curl "http://localhost:8983/solr/gettingstarted/schema/dynamicfields/*_s"
+```
+
+Now let's delete the rule.
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "delete-dynamic-field":{ "name":"*_s" }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Verify it is gone:
+
+
+```bash
+curl "http://localhost:8983/solr/gettingstarted/schema/dynamicfields/*_s"
+```
+
+
+### Step 6) Add a new Field Type
+
+Let us create a new field called `myNewTxtField`
+
+We will create it with the following anayzer:
+  * PatternReplaceCharFilter
+  * WhiteSpaceTokenizer
+  * Word Delimeter
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-field-type" : {
+     "name":"myNewTxtField",
+     "class":"solr.TextField",
+     "positionIncrementGap":"100",
+     "analyzer" : {
+        "charFilters":[{
+           "class":"solr.PatternReplaceCharFilterFactory",
+           "replacement":"$1$1",
+           "pattern":"([a-zA-Z])\\\\1+" }],
+        "tokenizer":{
+           "class":"solr.WhitespaceTokenizerFactory" },
+        "filters":[{
+           "class":"solr.WordDelimiterFilterFactory",
+           "preserveOriginal":"0" }]}}
+}' http://localhost:8983/solr/gettingstarted/schema
+
+```
+
+Let's list our field types:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes
+
+```
+
+
+Let's look specifically for the new one:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes/myNewTxtField
+```
+
+Now let's change our new field to have a different set of filters:
+
+This time, we have simply the `StandardTokenizer`
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "replace-field-type":{
+     "name":"myNewTxtField",
+     "class":"solr.TextField",
+     "positionIncrementGap":"100",
+     "analyzer":{
+        "tokenizer":{
+           "class":"solr.StandardTokenizerFactory" }}}
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Let's check out the modified text field, see what it looks like:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes/myNewTxtField
+```
+
+Now let's delete our new field:
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "delete-field-type":{ "name":"myNewTxtField" }
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+
+### Step 7) Add a new Field Type With Two Analyzers
+
+Now we are going to add a new fieldtype with two separate analyzers. The last example had one analyzer (with 
+several filters as part of the analyzer).
+
+```bash
+
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-field-type":{
+     "name":"myNewTextField",
+     "class":"solr.TextField",
+     "indexAnalyzer":{
+        "tokenizer":{
+           "class":"solr.PathHierarchyTokenizerFactory",
+           "delimiter":"/" }},
+     "queryAnalyzer":{
+        "tokenizer":{
+           "class":"solr.KeywordTokenizerFactory" }}}
+}' http://localhost:8983/solr/gettingstarted/schema
+
+```
+
+Let's check out the modified field type, see what it looks like:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes/myNewTxtField
+```
+
+
