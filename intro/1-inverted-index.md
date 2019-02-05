@@ -16,6 +16,9 @@ chosen document, in the form of
 
 `Word -- Lines where this word is found`
 
+Make a list of words of interest. For example, in "Moby Dick" you could choose 
+the following words: "whale", "ship", "Ahab", "sea", etc.
+
 What questions can you answer using an index?
 
 ### STEP 2) Building an inverted index

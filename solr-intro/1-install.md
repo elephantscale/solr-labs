@@ -249,6 +249,48 @@ SolrCloud example running, please visit: http://localhost:8983/solr
 ```
 
 
+### Step 6) Check Solr Status
+
+Call the following:
+
+```bash
+bin/solr status
+```
+
+You should get the following results:
+ 
+```console
+Found 2 Solr nodes:
+
+Solr process 6690 running on port 7574
+INFO  - 2019-02-05 15:10:33.723; org.apache.solr.util.configuration.SSLCredentialProviderFactory; Processing SSL Credential Provider chain: env;sysprop
+{
+  "solr_home":"/home/ubuntu/solr/example/cloud/node2/solr",
+  "version":"7.6.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
+  "startTime":"2019-02-05T15:09:52.467Z",
+  "uptime":"0 days, 0 hours, 0 minutes, 41 seconds",
+  "memory":"107.5 MB (%21.9) of 490.7 MB",
+  "cloud":{
+    "ZooKeeper":"localhost:9983",
+    "liveNodes":"2",
+    "collections":"1"}}
+
+
+Solr process 6518 running on port 8983
+INFO  - 2019-02-05 15:10:34.729; org.apache.solr.util.configuration.SSLCredentialProviderFactory; Processing SSL Credential Provider chain: env;sysprop
+{
+  "solr_home":"/home/ubuntu/solr/example/cloud/node1/solr",
+  "version":"7.6.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
+  "startTime":"2019-02-05T15:09:46.861Z",
+  "uptime":"0 days, 0 hours, 0 minutes, 48 seconds",
+  "memory":"85.1 MB (%17.3) of 490.7 MB",
+  "cloud":{
+    "ZooKeeper":"localhost:9983",
+    "liveNodes":"2",
+    "collections":"1"}}
+
+```
+
 ### STEP 6) Verify If Solr Is Up And Running
 
 Open this URL in your browser: 
