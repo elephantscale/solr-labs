@@ -35,9 +35,9 @@ java -cp target/solr-lab-1.0-SNAPSHOT-jar-with-dependencies.jar com.es.solr.Main
 What happened?  Did it work?
 
 
-### Step 4) Modify File to add Gouda Document
+### Step 4) Modify SolrOps file to add Gouda Document
 
-Notice the `addDoucument` method in the file `src/main/java/com/es/solr/SolrOps.java`.
+Notice the `addDocument` method in the file `src/main/java/com/es/solr/SolrOps.java`.
 
 ```java
     public void addDocument(File fileToAdd) {
@@ -61,9 +61,25 @@ Notice the `addDoucument` method in the file `src/main/java/com/es/solr/SolrOps.
 
 Notice that a number of lines are commented out.  Uncomment out the lines so we will be doing the addDocument.
 
+Now run the test that calls this
 
-### STEP 4) Modify the project to test in a flexible way
+```bash
+mvn test
+```
+
+Now verify that the document has been added:
+
+```bash
+curl "http://localhost:8983/solr/techproducts/select?q=Gouda"
+```
+
+
+### STEP 5) Modify the project to test in a flexible way
 
 1. Fix every TODO item
 2. Run the build
 3. Run the tests
+
+```bash
+mvn test
+```
