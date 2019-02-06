@@ -44,7 +44,7 @@ We recommend using a 'programmer's editor to view these files. These editors hav
   - [Install Solr](./solr-intro/1-install.md)
   - [Query Solr](./solr-intro/2-query.md)
 * Searching
-  - [Searching with Solritas](./search/1-solritas.md)
+  - [Searching with Solritas](./search/1-solritas-search.md)
   - [Facets](./search/2-facets.md)
   - [Geospatial Search](./search/3-geospatial.md)
 * Indexing
