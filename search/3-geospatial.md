@@ -39,7 +39,7 @@ You can now navigate to do a *spatial* query
 ![](../images/solr-spatial.png)
 
 
-Try experimenting with this yourself.
+Compose your query in the API.
 
 You can also open the following urL;
 
@@ -47,4 +47,8 @@ You can also open the following urL;
 http://YOURIPADDRESS:8983/solr/techproducts/browse?q=ipod&pt=37.7752%2C-122.4232&d=10&sfield=store&fq=%7B%21bbox%7D&queryOpts=spatial&queryOpts=spatial
 ```
 
+
+### Step 4) Try your own geospatial Query
+
+Using either the web UI or using curl, do your own geospatial query.
 

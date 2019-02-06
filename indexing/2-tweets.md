@@ -9,17 +9,20 @@ In this lab we will practice the direct indexing of documents with Solr server a
 2. Search the results
 
 
-### STEP 1) Clean up the index 
+### STEP 1) Stop and restart Solr (if needed)
 ```bash
-    curl http://localhost:8983/solr/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
-    curl http://localhost:8983/solr/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
+cd $SOLR_HOME
+bin/solr stop -all
+./bin/solr start -c -p 8983 -s example/cloud/node1/solr
+./bin/solr start -c -p 7574 -s example/cloud/node2/solr -z localhost:9983
+
 ```
 
 
-### STep 2) Create A a new collection
+### Step 2) Create A a new collection
 
 ```bash 
- ./bin/solr create -c collection1 -s 2 -rf 2
+ ./bin/solr create -c tweets -s 2 -rf 2
 
 ```
 
@@ -30,21 +33,21 @@ Let's start by doing the exampledocs
 
 ```bash
     $ ls $SOLR_INSTALL/example/exampledocs
-    $ bin/post -c collection1 example/exampledocs/*.xml
+    $ bin/post -c tweets example/exampledocs/*.xml
 ```
 
 ### STEP 3) Execute the *:* query
- For that, select `collection1`. Follow the screenshot on the slides.
+ For that, select `tweets`. Follow the screenshot on the slides.
 
 ### STEP 4) Investigate various search options provided by Solr
  Compose your list, then compare it to the screenshot on the slides.
 
 ### Step 5) Clean up the Index
 
-This will delete all the documents in  the `collection1` collection
+This will delete all the documents in  the `tweets` collection
 
 ```bash
-bin/post -c collection1 -d "<delete><query>*:*</query></delete>"
+bin/post -c tweets -d "<delete><query>*:*</query></delete>"
 ```
 
 
@@ -64,15 +67,15 @@ Lab Goals:
 
 ### STEP 1) Index XML documents
 ```bash
-    bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.xml
+    bin/post -c tweets $SOLR_LABS/indexing/data/tweets/tweets.xml
 ```
 ### STEP 2) Execute the *:* query. 
 
-Click Query under collection1 in the menu on the left, and execute query type_s:post
+Click Query under tweets in the menu on the left, and execute query type_s:post
 
 ### STEP 3) Index JSON documents
 ```bash
-    bin/post -c collection1 $SOLR_LABS/indexing/data/tweets/tweets.json
+    bin/post -c tweets $SOLR_LABS/indexing/data/tweets/tweets.json
 ```
 ### Notice:
 
@@ -111,8 +114,14 @@ Another way to delete a document
 ```bash
     $bin/post -Ddata=args -Dcommit=? "<delete><id>?</id></delete>"
 ```
-### STEP 3) To delete all documents
+### STEP 3) To delete all documents in the collection
 ```bash
     curl http://localhost:8983/solr/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
     curl http://localhost:8983/solr/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
+```
+
+### STEP 4) To Delete the entire collection
+
+```bash
+bin/solr delete -c tweets
 ```
