@@ -26,9 +26,10 @@ public class SolrJAddDocumentClientAPI {
     document.addField("price","800");
     
     try {
-      UpdateResponse response = solr.add(document);
-      solr.commit();
-      _log.info(response.toString());
+      //TODO: Uncomment out this code
+      //UpdateResponse response = solr.add(document);
+      //solr.commit();
+      //_log.info(response.toString());
     } catch (SolrServerException e) {
       _log.error(e.getMessage());
     } catch (IOException e) {
