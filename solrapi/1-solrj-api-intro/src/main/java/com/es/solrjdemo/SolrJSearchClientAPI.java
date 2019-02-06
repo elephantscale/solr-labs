@@ -16,14 +16,13 @@ public class SolrJSearchClientAPI {
     String hostURL = "http://localhost:8983/solr/techproducts";
     HttpSolrClient solr = new HttpSolrClient.Builder(hostURL).build();
     
-    //set response parser
-    //solr.setParser(new XMLResponseParser());
-    
     //query configurations
     SolrQuery query = new SolrQuery();
-    query.set("q", "ipod");
-    
+
+    // TODO: Set search term for q = "ipod"
+    query.set("q", "???");
     query.set("fl", "id,name"); 
+
     /*alternate way to configure fl parameter
      * query.setFields("id","name");*/
     

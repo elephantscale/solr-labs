@@ -17,9 +17,10 @@ public class SolrJDeleteDocumentClientAPI {
     HttpSolrClient solr = new HttpSolrClient.Builder(hostURL).build();
     
     try {
-    	UpdateResponse response = solr.deleteById("HPPRO445");
+    // TODO: Delete By Id "HPPR0445"
+    // 	UpdateResponse response = solr.???(???);
         solr.commit();
-        _log.info(response.toString());
+    //    _log.info(response.toString());
     } catch (SolrServerException e) {
       _log.error(e.getMessage());
     } catch (IOException e) {

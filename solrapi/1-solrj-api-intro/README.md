@@ -148,6 +148,15 @@ or with the Solr Search Web based Interface.
 
 Time to do a query programatically.  Edit the file for  `SolrJSearchClientAPI.java`
 
+Here is what you need to change:
+
+```java
+    // TODO: Set search term for q = "ipod"
+    query.set("q", "???");
+    query.set("fl", "id,name");
+
+```
+
 
 Now build and run your query:
 
@@ -170,10 +179,15 @@ Edit the file `SolrJDeleteDocumentClientAPI.java`
 
 Complete the TODO Items.
 
-Now build and run your query:
+Now build and run your code:
 
 ```bash
 mvn clean package
 java -cp target/solrjdemo-1.0-SNAPSHOT-jar-with-dependencies.jar com.es.solrjdemo.SolrJDeleteDocumentClientAPI
 ```
 
+Verify that your product is now deleted:
+
+```bash
+curl "http://localhost:8983/solr/techproducts/select?q=HP"
+```
