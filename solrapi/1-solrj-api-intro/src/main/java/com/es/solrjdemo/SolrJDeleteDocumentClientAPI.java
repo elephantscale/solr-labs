@@ -1,4 +1,4 @@
-package SolrJDeleteDocumentClientAPI.java;
+package com.es.solrjdemo;
 
 import java.io.IOException;
 

@@ -156,6 +156,12 @@ mvn clean package
 java -cp target/solrjdemo-1.0-SNAPSHOT-jar-with-dependencies.jar com.es.solrjdemo.SolrJSearchClientAPI
 ```
 
+You should get the following results:
+
+```console
+2019-02-06 15:32:21 INFO  SolrJSearchClientAPI:35 - {responseHeader={zkConnected=true,status=0,QTime=9,params={q=ipod,fl=id,name,wt=javabin,version=2}},response={numFound=3,start=0,maxScore=4.235964,docs=[SolrDocument{id=F8V7067-APL-KIT, name=Belkin Mobile Power Cord for iPod w/ Dock}, SolrDocument{id=IW-02, name=iPod & iPod Mini USB 2.0 Cable}, SolrDocument{id=MA147LL/A, name=Apple 60 GB iPod with Video Playback Black}]}}
+```
+
 Observe the results.
 
 ### Step 8) Modify and run the Delete Code
