@@ -53,6 +53,8 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Schema Updating
   - [Schema](./schema/README.md)
   - [Text Analysis](./textanalysis/README.mD)
+* Solr API
+  - [SolrAPI](./solrapi/README.md)
 * Bookstore App
   - [Bookstore App](./bookstore/README.md)
 * Extended Features
@@ -61,5 +63,3 @@ We recommend using a 'programmer's editor to view these files. These editors hav
   - [SolrCloud](./solrcloud/README.md)
 * Dev Environments
   - [Luke](./luke/README.md)
-* Solr API
-  - [SolrAPI](./solrapi/README.md)
