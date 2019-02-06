@@ -112,7 +112,7 @@ With the update handler below
 ```
 Another way to delete a document
 ```bash
-    $bin/post -Ddata=args -Dcommit=? "<delete><id>?</id></delete>"
+    $ bin/post -Ddata=args -Dcommit=? "<delete><id>?</id></delete>"
 ```
 ### STEP 3) To delete all documents in the collection
 ```bash
