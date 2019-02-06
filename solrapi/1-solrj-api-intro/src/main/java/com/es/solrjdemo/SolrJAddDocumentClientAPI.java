@@ -28,7 +28,7 @@ public class SolrJAddDocumentClientAPI {
     try {
       //TODO: Uncomment out this code
       //UpdateResponse response = solr.add(document);
-      //solr.commit();
+      solr.commit();
       //_log.info(response.toString());
     } catch (SolrServerException e) {
       _log.error(e.getMessage());
