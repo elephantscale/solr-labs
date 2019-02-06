@@ -11,13 +11,20 @@ Lab Goals:
 
 ### STEP 1) Import the provided book catalog
 
+Let's create a new collection called `bookstore` . You know how to do this. If not, find a previous lab.
+
+Go ahead and import the example docs in `$SOLR_HOME/example/exampledocs`.
+
 The catalog is provided in the Solr installation here
 
     $SOLR/example/exampledocs
 
 Use the post command 
 
-    java -jar post.jar
+```bash
+$ bin/post ...... FILL IN THE BLANK .....
+```
+
     
 What additional parameters do you need to give? 
 

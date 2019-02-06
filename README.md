@@ -43,13 +43,13 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Solr Intro
   - [Install Solr](./solr-intro/1-install.md)
   - [Query Solr](./solr-intro/2-query.md)
-* Indexing
-  - [Indexing Films Example](./indexing/1-films.md)
-  - [Indexing Tweets Example](./indexing/2-tweets.md)
 * Searching
   - [Searching with Solritas](./search/1-solritas.md)
   - [Facets](./search/2-facets.md)
   - [Geospatial Search](./search/3-geospatial.md)
+* Indexing
+  - [Indexing Films Example](./indexing/1-films.md)
+  - [Indexing Tweets Example](./indexing/2-tweets.md)
 * Schema Updating
   - [Schema](./schema/README.md)
   - [Text Analysis](./textanalysis/README.mD)
