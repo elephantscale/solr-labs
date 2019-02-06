@@ -328,4 +328,37 @@ curl http://localhost:8983/solr/gettingstarted/schema/fieldtypes/myNewTxtField
 
 ### Step 8: Copy fields
 
-Copy fields allow you to make a certain field interpreted more than one way.
+Copy fields allow you to make a certain field interpreted more than one way. 
+
+The following fields have to be defined:
+
+* source:  The source field. This parameter is required.
+* dest:  A field or an array of fields to which the source field will be copied. This parameter is required.
+* maxChars The upper limit for the number of characters to be copied. 
+
+Let's copy field `shelf` to field `catchall`
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-copy-field":{
+     "source":"shelf",
+     "dest":[ "location", "catchall" ]}
+}' http://localhost:8983/solr/gettingstarted/schema
+```
+
+Let us now confirm that we did add the copy field:
+
+```bash
+curl http://localhost:8983/solr/gettingstarted/schema/copyfields
+```
+
+And let's delete the same:
+
+```bash
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "delete-copy-field":{ "source":"shelf", "dest":"location" }
+}' http://localhost:8983/solr/gettingstarted/schema
+
+```
+
+
