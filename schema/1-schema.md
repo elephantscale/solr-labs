@@ -157,7 +157,22 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 }' http://localhost:8983/solr/gettingstarted/schema
 ```
 
-Now that it should be back, now let's *replace* the field with a different ype `date`.
+
+Now let's create a new type called `date` rather than `pdate`:
+```bash
+
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-field-type" : {
+     "name":"date",
+     "class":"solr.DatePointField",
+     "sortMissingLast"="true",
+     omitNorms="true"
+     }
+}' http://localhost:8983/solr/gettingstarted/schema
+
+```
+
+Now that it should be back, now let's *replace* the field with a different type `date`.
 
 ```bash
 curl -X POST -H 'Content-type:application/json' --data-binary '{
