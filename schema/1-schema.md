@@ -121,6 +121,12 @@ Or you can go directly:
 http://YOURIPADDRESS:8983/solr/#/gettingstarted/schema?field=sell_by
 ```
 
+
+After you go there you should see the schema browser as follows:
+
+![](../images/schema_browser.png)
+
+
 ### STEP 3) Delete a Field
 
 Now delete your new field
