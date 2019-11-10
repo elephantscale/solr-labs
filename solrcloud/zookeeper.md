@@ -1,6 +1,6 @@
 <link rel='stylesheet' href='../assets/css/main.css'/>
 
-[<< back to main index](../README.md)
+[`<<` back to main index](../README.md)
 
 Lab 1.1 : Run Zookeeper
 =====================
@@ -34,7 +34,7 @@ Try this in terminal
 ## Step 2 :  Configure Zookeeper
 We have a sample config file for zookeeper.  It is in  `config/zk/zoo.cfg`.  The content looks like this
 
-```
+```text
 tickTime=2000
 dataDir=/home/ubuntu/zookeeper-data
 clientPort=2181
@@ -42,18 +42,18 @@ clientPort=2181
 
 Copy this file into '~/zookeeper/conf' directory as follows.
 
-```
+```bash
     $   cp ~/config/zk/zoo.cfg    ~/zookeeper/conf/zoo.cfg
 ```
 
 
 ## Step 3:  Create a zookeeper data directory
-```
+```bash
     $    mkdir ~/zookeeper-data
 ```
 
 ## Step 4: Start the zookeeper server
-```
+```bash
     $  ~/zookeeper/bin/zkServer.sh start
 ```
 
@@ -81,6 +81,7 @@ If we see a process named 'QuorumPeerMain' then zookeeper is running
 ```
 
 Output may look like this:
+
 ```console
 Trying 127.0.0.1...
 Connected to localhost.
@@ -100,12 +101,13 @@ Connection closed by foreign host.
 
 
 ### Option 2  : Zookeeper client
-```
+```bash
     $   ~/zookeeper/bin/zkCli.sh  -server  localhost:2181
 ```
 
 This will drop you into ZKCLI.  Try these commands  in shell.
-```
+
+```console
     >   help
     >   stat /
     >   quit
@@ -115,7 +117,7 @@ This will drop you into ZKCLI.  Try these commands  in shell.
 ### Option 3 : Web UI
 We can also use [zk-web](https://github.com/qiuxiafei/zk-web) to examine zookeeper.
 
-```
+```console
     $    cd  ~/apps/zk-web
 
     $    nohup lein run  &
