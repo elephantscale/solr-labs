@@ -22,26 +22,36 @@ Verify that you have Java installed
 ```bash
     java -version
 ```
+
+If not installed
+
+```bash
+   sudo rm -f /var/lib/dpkg/lock-frontend
+   sudo apt install default-jdk
+   java -version
+```   
+
+
 ### STEP 3) Download and install Solr
 
 Solr is found here, [Solr web site]
 
 ```bash
-https://www-eu.apache.org/dist/lucene/solr/7.6.0
+https://www-eu.apache.org/dist/lucene/solr/8.3.0
 ```
 
 Find out the link to download, copy the link, then use the wget (or curl) command to place the Solr bundle on your server, such as
 
 
 ```bash
-    wget https://www-eu.apache.org/dist/lucene/solr/7.6.0/solr-7.6.0.tgz
+    wget https://www-eu.apache.org/dist/lucene/solr/8.3.0/solr-8.3.0.tgz
 ```
 
 Decompress and untar the bundle. Put solr in your home directory, like this:
 
 ```bash
-    tar zxf solr-7.6.0.tgz
-    mv solr-7.6.0 ~/solr
+    tar zxf solr-8.3.0.tgz
+    mv solr-8.3.0 ~/solr
 ```
 
 ### Step 4) Check ulimit
@@ -266,7 +276,7 @@ Solr process 6690 running on port 7574
 INFO  - 2019-02-05 15:10:33.723; org.apache.solr.util.configuration.SSLCredentialProviderFactory; Processing SSL Credential Provider chain: env;sysprop
 {
   "solr_home":"/home/ubuntu/solr/example/cloud/node2/solr",
-  "version":"7.6.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
+  "version":"8.3.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
   "startTime":"2019-02-05T15:09:52.467Z",
   "uptime":"0 days, 0 hours, 0 minutes, 41 seconds",
   "memory":"107.5 MB (%21.9) of 490.7 MB",
@@ -280,7 +290,7 @@ Solr process 6518 running on port 8983
 INFO  - 2019-02-05 15:10:34.729; org.apache.solr.util.configuration.SSLCredentialProviderFactory; Processing SSL Credential Provider chain: env;sysprop
 {
   "solr_home":"/home/ubuntu/solr/example/cloud/node1/solr",
-  "version":"7.6.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
+  "version":"8.3.0 719cde97f84640faa1e3525690d262946571245f - nknize - 2018-12-07 14:47:52",
   "startTime":"2019-02-05T15:09:46.861Z",
   "uptime":"0 days, 0 hours, 0 minutes, 48 seconds",
   "memory":"85.1 MB (%17.3) of 490.7 MB",
