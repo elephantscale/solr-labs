@@ -390,7 +390,7 @@ then unzip
    sudo chown zk:zk -R solr-8.3.0
    sudo ln -s solr-8.3.0 solr
    sudo chown zk:zk -R solr
-   cd /solr/bin
+   cd /opt/solr/bin
 ```
 
 Then run solr cloud
