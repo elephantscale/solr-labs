@@ -20,8 +20,8 @@ Note: 8983 is the default port for Solr
 - Click on  Add Collection (for e.g. Enron)
 - Input name 
 - Open config set and select **__default**  
-- leave other fields as default 
-- Click on add collection
+- input 2 for **numShards**
+- input 2 for **replicationFactor**
 
 Now, after couple of second this collection will appear on your other nodes.
 
@@ -34,33 +34,34 @@ Go to /home/ubuntu and create a directory called dataset
 ```bash
 cd /home/ubuntu
 sudo mkdir dataset
-cdtdataset
+cd dataset
 ```
 
 Then download the dataset
 
 ```bash
-sudo wget https://elephantscale-public.s3.amazonaws.com/data/datasets.zip
+sudo wget https://s3.amazonaws.com/freeeed.org/enron/results/enron001.zip
 ```
 
 Extract the downloaded dataset
 
 ```bash
-sudo unzip datasets.zip
-cd datasets
+sudo unzip enron001.zip
+
+sudo rm -rf enron001.zip
 ```
  
- now we can index this datasets with solr, go to solr installation directory.
+ now we can index this dataset with solr, go to solr installation directory.
  We'll assume that you followed **multi-node-install** correctly and Solr is installed in **/opt/solr/**
  
  ```bash
 cd /opt/solr/bin/
 ```
  
-to start indexing use the following template
+to start indexing with zookeeper use the following template
 
 ```bash
-./post -c  CollectionName datasetAddress
+sudo -u zk ./post -c  CollectionName datasetAddress
 ```
 
 **CollectionName**: Name of the collection that you created in the previous step
@@ -70,7 +71,7 @@ to start indexing use the following template
 so use this command for our example
 
 ```bash
-./post -c  Enron /home/ubuntu/dataset/datasets
+sudo -u zk ./post -c  Enron /home/ubuntu/dataset
 ```
 
 this operation could take minutes.
