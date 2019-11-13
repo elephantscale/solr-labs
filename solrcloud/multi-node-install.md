@@ -17,12 +17,12 @@ We will use 3  Ubuntu 18.04.3 LTS machines for this guid with the following reso
 To verify your resources use the following commands
 
 ```bash
-    grep -c ^processor /proc/cpuinfo
+grep -c ^processor /proc/cpuinfo
 ```
          
 This should return your cpu core counts.
 ```bash
-    free -g
+free -g
 ```
     
 This should return your ram amount.
@@ -30,14 +30,14 @@ This should return your ram amount.
 After verifying that you have the minimum resource that is needed, make sure your Ubuntu installation is up-to-date
 
 ```bash
-    sudo apt-get update
+sudo apt-get update
 ```
 
     
- install Java
+Install Java
  
 ```bash 
-    sudo apt-get install default-jdk
+sudo apt-get install default-jdk
 ```
     
 Note: you must have root access.              
@@ -46,6 +46,101 @@ Once you're done with prerequisite we should start by installing and configuring
 
 Apache ZooKeeper is open-source software that enables resilient and highly reliable distributed coordination. It is commonly used in distributed systems to manage configuration information, naming services, distributed synchronization, quorum, and state. In addition, distributed systems rely on ZooKeeper to implement consensus, leader election, and group management.
 
+### Retrieve IP Address
+
+```bash
+export HOST1=YOURIPADDRESS1
+export HOST2=YOURIPADDRESS2
+export HOST3=YOURIPADDRESS3
+```
+
+### Check ulimit
+
+If you start solr now, you will likely get this nasty warning:
+
+
+```console
+*** [WARN] *** Your open file limit is currently 1024.
+ It should be set to 65000 to avoid operational disruption.
+ If you no longer wish to see this warning, set SOLR_ULIMIT_CHECKS to false in your profile or solr.in.sh
+*** [WARN] ***  Your Max Processes Limit is currently 31748.
+ It should be set to 65000 to avoid operational disruption.
+ If you no longer wish to see this warning, set SOLR_ULIMIT_CHECKS to false in your profile or solr.in.sh
+```
+
+So, let us avoid this problem by properly setting our ulimits. First, let's check to see our current ulimit:
+
+```console
+$ ulimit -n
+1024
+```
+
+Let see our max ulmit:
+
+```console
+$ cat /proc/sys/fs/file-max
+810574
+```
+
+Plenty of room for improvement, right?
+
+Let's change it to 65000, as solr recommends:
+
+```console
+$ sudo  nano /etc/sysctl.conf
+```
+
+add the following:
+
+```console
+fs.file-max = 65000
+```
+
+Run this:
+
+```bash
+sudo sysctl -p
+```
+
+Edit this file:
+
+```console
+$ sudo nano /etc/security/limits.conf
+```
+
+Add this:
+
+```console
+* soft     nproc          65000
+* hard     nproc          65000
+* soft     nofile         65000
+* hard     nofile         65000
+root soft     nproc          65000
+root hard     nproc          65000
+root soft     nofile         65000
+root hard     nofile         65000
+```
+
+Edit this file:
+
+```console
+$ sudo nano /etc/pam.d/common-session
+```
+
+Add this:
+
+```console
+session required pam_limits.so
+```
+
+Logout:
+
+```console
+$ exit
+```
+
+
+
 # Installing ZooKeeper
 
 ### STEP 1 - Creating user for ZooKeeper ) 
@@ -53,34 +148,34 @@ Apache ZooKeeper is open-source software that enables resilient and highly relia
 Never use root for you installation, create a user to run Zookeeper
 
 ```bash
-    sudo useradd zk -m
+sudo useradd zk -m
 ```            
    
 Passing the -m flag to the useradd command will create a home directory for this user. The home directory for zk will be /home/zk by default.
    
-  Set bash as the default shell for the zk user: 
+Set bash as the default shell for the zk user: 
 
 ```bash   
-    sudo usermod --shell /bin/bash zk
+sudo usermod --shell /bin/bash zk
 ```
     
 Set a password for this user:
 
 ```bash
-    sudo passwd zk
+sudo passwd zk
 ```
    
 Next, you will add the zk user to the sudo group so it can run commands in a privileged mode:
    
 ```bash
-    sudo usermod -aG sudo zk
+sudo usermod -aG sudo zk
 ```
    
    
 Switch to the zk user:
 
 ```bash   
-    su -l zk        
+su -l zk        
 ```
    
 
@@ -112,13 +207,13 @@ We are going to download and extract Zookeeper directly ro /opt directory. You m
 start by changing to the /opt directory:
    
 ```bash   
-    cd /opt
-  ``` 
+cd /opt
+``` 
 
 We are going to use the latest stable version which is 3.5.6   
 
 ```bash
-    sudo wget http://apache.mirror.anlx.net/zookeeper/stable/apache-zookeeper-3.5.6-bin.tar.gz
+sudo wget http://apache.mirror.anlx.net/zookeeper/stable/apache-zookeeper-3.5.6-bin.tar.gz
 ```
 
 Extract the binaries from the compressed archive:
@@ -378,7 +473,8 @@ cd /opt
 then download
 
 ```bash
-  sudo wget http://archive.apache.org/dist/lucene/solr/8.3.0/solr-8.3.0.zip
+sudo wget http://archive.apache.org/dist/lucene/solr/8.3.0/solr-8.3.0.tgz
+sudo tar xzf solr-8.3.0.tgz solr-8.3.0/bin/install_solr_service.sh --strip-components=2 
 ```
   
   
@@ -386,15 +482,15 @@ then download
 then unzip
 
 ```bash   
-   sudo unzip solr-8.3.0.zip
-   sudo chown zk:zk -R solr-8.3.0
-   sudo ln -s solr-8.3.0 solr
-   sudo chown zk:zk -R solr
-   cd /opt/solr/bin
+sudo tar zxvf solr-8.3.0.tgz
+sudo chown zk:zk -R solr-8.3.0
+sudo ln -s solr-8.3.0 solr
+sudo chown zk:zk -R solr
+cd /opt/solr/bin
 ```
 
 Then run solr cloud
    
 ```bash
-   ./solr start -e cloud -z 10.128.0.26:2181,10.128.0.27:2181,10.128.0.28:2181 -noprompt
+./solr start -e cloud -z $HOST1:2181,$HOST2:2181,$HOST3:2181 -noprompt
 ```
