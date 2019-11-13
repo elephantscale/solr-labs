@@ -444,13 +444,6 @@ Change the ownership of that link to zk:zk.
    
 # Installing Solr   
    
-first, install unzip
-
-```bash
-sudo apt-get install unzip
-```
-
-
 ```console
 
 ulimit -n
@@ -470,27 +463,38 @@ cd /opt
 
 ```
 
-then download
+then download and extrac the install script
 
 ```bash
-sudo wget http://archive.apache.org/dist/lucene/solr/8.3.0/solr-8.3.0.tgz
-sudo tar xzf solr-8.3.0.tgz solr-8.3.0/bin/install_solr_service.sh --strip-components=2 
+sudo wget http://apache.mirrors.lucidnetworks.net/lucene/solr/8.3.0/solr-8.3.0.tgz
+sudo tar xzf solr-8.3.0.tgz solr-8.3.0/bin/install_solr_service.sh --strip-components=2
 ```
   
-  
-   
-then unzip
+
+Run the `install_solr_service.sh`:
 
 ```bash   
-sudo tar zxvf solr-8.3.0.tgz
-sudo chown zk:zk -R solr-8.3.0
-sudo ln -s solr-8.3.0 solr
-sudo chown zk:zk -R solr
-cd /opt/solr/bin
+sudo bash ./install_solr_service.sh  solr-8.3.0.tgz -u zk -n
+sudo chown -R zk /opt/solr /opt/solr-8.3.0
+echo ZK_HOST=$HOST1,$HOST2,$HOST3 | sudo tee -a  /etc/default/solr.in.sh
 ```
 
 Then run solr cloud
    
 ```bash
-./solr start -e cloud -z $HOST1:2181,$HOST2:2181,$HOST3:2181 -noprompt
+sudo service solr start
 ```
+
+## Test
+
+```bash
+curl localhost:8983/solr/#
+```
+
+You should get a response.
+
+You can also open up this in a browser
+
+`http://YOURIPADDRESS:8983/solr/#`
+
+
