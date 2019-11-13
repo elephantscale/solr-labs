@@ -25,6 +25,12 @@ Note: 8983 is the default port for Solr
 
 Now, after couple of second this collection will appear on your other nodes.
 
+You can also create this using the command line:
+
+```bash
+sudo -u zk /opt/solr/bin/solr create -c Enron -s 2 -rf 2
+```
+
 ### Step 1 - Indexing data ) 
 
 For this sample we are going to use Enron dataset.
