@@ -165,8 +165,8 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
   "add-field-type" : {
      "name":"date",
      "class":"solr.DatePointField",
-     "sortMissingLast"="true",
-     omitNorms="true"
+     "sortMissingLast":"true",
+     "omitNorms":"true"
      }
 }' http://localhost:8983/solr/gettingstarted/schema
 
