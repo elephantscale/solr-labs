@@ -328,7 +328,7 @@ several filters as part of the analyzer).
 
 curl -X POST -H 'Content-type:application/json' --data-binary '{
   "add-field-type":{
-     "name":"myNewTextField",
+     "name":"myNewTxtField",
      "class":"solr.TextField",
      "indexAnalyzer":{
         "tokenizer":{
