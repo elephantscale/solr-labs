@@ -1,3 +1,5 @@
+# Lab: Using Solr Operator
+
 To get started, we need to install the nginx ingress controller into ingress-nginx namespace:
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
@@ -5,10 +7,11 @@ For more information, see Deploy Nginx Ingress on GKE.
 
 To verify the ingress controller is operating normally, do:
 
-```coneole
+```console
 kubectl get pods -l app.kubernetes.io/name=ingress-nginx -n ingress-nginx \
   --field-selector status.phase=Running
 ```
+
 Should see expected output similar to:
 
 ```console
@@ -143,7 +146,7 @@ What should stand out to you about the SolrCloud YAML is that most of the settin
 
 Open a shell and run the following to tail the operator pod logs:
 
-````bash
+```bash
 kubectl logs -l control-plane=solr-operator -f
 ```
 
