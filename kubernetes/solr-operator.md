@@ -2,8 +2,9 @@
 
 To get started, we need to install the nginx ingress controller into ingress-nginx namespace:
 
+```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
-For more information, see Deploy Nginx Ingress on GKE.
+```
 
 To verify the ingress controller is operating normally, do:
 
