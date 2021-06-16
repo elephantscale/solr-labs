@@ -153,7 +153,7 @@ kubectl logs -l control-plane=solr-operator -f
 
 Note that I’m using a label selector (-l ...) instead of addressing the pod by its ID; this alleviates having to find the pod ID every time I want to view the operator logs.
 
-To deploy the explore SolrCloud to K8s, save the YAML shown above to a file named explore-SolrCloud.yaml and then run the following in another shell tab:
+To deploy the explore SolrCloud to K8s, save the YAML shown above to a file named `explore-SolrCloud.yaml` and then run the following in another shell tab:
 
 ```bash
 kubectl apply -f explore-SolrCloud.yaml
@@ -161,7 +161,7 @@ kubectl apply -f explore-SolrCloud.yaml
 
 We'll make updates to the `explore-SolrCloud.yaml` file throughout the rest of this document.
 
-Any code section that starts with "spec:", refers to this file.
+Any code section that starts with `spec:`, refers to this file.
 
 When you submit this SolrCloud definition to the Kubernetes API server, it notifies the Solr operator (running as a pod in your namespace) using a watcher like mechanism. This initiates a reconcile process in the operator where it creates the various K8s objects needed to run the explore SolrCloud cluster (see diagram above). Take a brief look at the logs for the operator as the SolrCloud instance gets deployed.
 
