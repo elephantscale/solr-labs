@@ -40,28 +40,40 @@ We recommend using a 'programmer's editor to view these files. These editors hav
 * Introduction
   - [Inverted Index](./inverted-index/README.md)
   - [IR Intro](./IR/README.md)
+
 * Solr Intro
   - [Install Solr](./solr-intro/1-install.md)
   - [Query Solr](./solr-intro/2-query.md)
+
 * Searching
   - [Searching with Solritas](./search/1-solritas-search.md)
   - [Facets](./search/2-facets.md)
   - [Geospatial Search](./search/3-geospatial.md)
+
 * Indexing
   - [Indexing Films Example](./indexing/1-films.md)
   - [Indexing Tweets Example](./indexing/2-tweets.md)
+
 * Schema Updating
   - [Schema](./schema/README.md)
   - [Text Analysis](./textanalysis/README.mD)
+
 * Solr API
   - [SolrAPI](./solrapi/README.md)
+
 * Bookstore App
   - [Bookstore App](./bookstore/README.md)
+
 * Extended Features
   - [Clustering](./clustering/README.md)
+
 * SolrCloud
   - [SolrCloud](./solrcloud/README.md)
+
 * Docker and Kubernetes
- - [Docker Single Instance](./kubernetes/docker-single-instance.md)
- - [Install Kubernetes](./kubernetes/ 1.2-install-kubernetes-gcp.md)
- - [Solr Operator](./kubernetes/solr-operator.md)
+  - [Docker Single Instance](./kubernetes/docker-single-instance.md)
+  - [Install Kubernetes](./kubernetes/ 1.2-install-kubernetes-gcp.md)
+  - [Solr Operator](./kubernetes/solr-operator.md)
+
+* Security
+  - [Security Lab](./security/README.md)
