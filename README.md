@@ -61,5 +61,7 @@ We recommend using a 'programmer's editor to view these files. These editors hav
   - [Clustering](./clustering/README.md)
 * SolrCloud
   - [SolrCloud](./solrcloud/README.md)
-* Dev Environments
-  - [Luke](./luke/README.md)
+* Docker and Kubernetes
+ - [Docker Single Instance](./kubernetes/docker-single-instance.md)
+ - [Install Kubernetes](./kubernetes/ 1.2-install-kubernetes-gcp.md)
+ - [Solr Operator](./kubernetes/solr-operator.md)
