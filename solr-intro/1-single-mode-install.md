@@ -37,21 +37,21 @@ If not installed
 Solr is found here, [Solr web site]
 
 ```bash
-https://www-eu.apache.org/dist/lucene/solr/8.3.0
+https://www-eu.apache.org/dist/lucene/solr/8.9.0
 ```
 
 Find out the link to download, copy the link, then use the wget (or curl) command to place the Solr bundle on your server, such as
 
 
 ```bash
-    wget https://www-eu.apache.org/dist/lucene/solr/8.3.0/solr-8.3.0.tgz
+    wget https://www-eu.apache.org/dist/lucene/solr/8.9.0/solr-8.9.0.tgz
 ```
 
 Decompress and untar the bundle. Put solr in your home directory, like this:
 
 ```bash
-    tar zxf solr-8.3.0.tgz
-    mv solr-8.3.0 ~/solr
+    tar zxf solr-8.9.0.tgz
+    mv solr-8.9.0 ~/solr
 ```
 
 ### Step 4) Check ulimit
