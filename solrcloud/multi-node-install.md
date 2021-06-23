@@ -466,16 +466,16 @@ cd /opt
 then download and extrac the install script
 
 ```bash
-sudo wget http://apache.mirrors.lucidnetworks.net/lucene/solr/8.3.0/solr-8.3.0.tgz
-sudo tar xzf solr-8.3.0.tgz solr-8.3.0/bin/install_solr_service.sh --strip-components=2
+sudo wget http://apache.mirrors.lucidnetworks.net/lucene/solr/8.9.0/solr-8.9.0.tgz
+sudo tar xzf solr-8.9.0.tgz solr-8.9.0/bin/install_solr_service.sh --strip-components=2
 ```
   
 
 Run the `install_solr_service.sh`:
 
 ```bash   
-sudo bash ./install_solr_service.sh  solr-8.3.0.tgz -u zk -n
-sudo chown -R zk /opt/solr /opt/solr-8.3.0
+sudo bash ./install_solr_service.sh  solr-8.9.0.tgz -u zk -n
+sudo chown -R zk /opt/solr /opt/solr-8.9.0
 echo ZK_HOST=$HOST1,$HOST2,$HOST3 | sudo tee -a  /etc/default/solr.in.sh
 ```
 
